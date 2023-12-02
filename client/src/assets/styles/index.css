@@ -1,0 +1,9 @@
+.position_to_right {
+  position: absolute;
+  top:10px;
+  /* left: 80%; */
+  right: 2% ;
+}
+.relative{
+  position: relative;
+}
