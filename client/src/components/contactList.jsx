@@ -2,10 +2,11 @@ import React from 'react';
 import ContactCard from './contactCard';
 
 const ContactList = ({ contacts,deletecontact }) => {
+
   const renderList = contacts.map(contact => {
     return (
       <>
-        <ContactCard contact={contact} deletecontact={deletecontact}/>
+        <ContactCard contact={contact} deletecontact={deletecontact} key={contact.id}/>
       </>
     );
   });

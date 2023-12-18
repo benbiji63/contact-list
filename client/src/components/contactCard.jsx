@@ -4,10 +4,8 @@ import '../assets/styles/index.css';
 
 const ContactCard = ({ contact, deletecontact }) => {
   const { name, email } = contact;
-  console.log(deletecontact);
-
   return (
-    <div className="item relative">
+    <div className="item relative" >
       <img className="ui avatar image" src={user} alt="user" />
       <div className="content">
         <p className="header">{name}</p>

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const AddContact = ({ addContactHandler }) => {
   const [name, setName] = useState('');
@@ -7,16 +6,18 @@ const AddContact = ({ addContactHandler }) => {
   const [newContact, setNewContact] = useState({});
 
   const add = async e => {
+    console.log(name, email);
     e.preventDefault();
     if (name === '' || email === '') {
       alert('All fields are mandatory');
       return null;
     }
-
-    console.log(newContact);
     setNewContact({ name: name, email: email });
+    setName('');
+    setEmail('');
   };
-
+  
+  
   useEffect(() => {
     addContactHandler(newContact);
   }, [newContact]);
