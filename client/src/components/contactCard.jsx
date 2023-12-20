@@ -5,7 +5,7 @@ import '../assets/styles/index.css';
 const ContactCard = ({ contact, deletecontact }) => {
   const { name, email } = contact;
   return (
-    <div className="item relative" >
+    <div className="item relative">
       <img className="ui avatar image" src={user} alt="user" />
       <div className="content">
         <p className="header">{name}</p>
@@ -14,7 +14,7 @@ const ContactCard = ({ contact, deletecontact }) => {
       <i
         className="trash alternate outline icon position_to_right"
         style={{ color: 'red', marginTop: '1vh' }}
-        onClick={() => deletecontact(contact)}></i>
+        onClick={() => deletecontact(contact.id)}></i>
     </div>
   );
 };
