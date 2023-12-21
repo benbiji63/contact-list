@@ -2,12 +2,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Header from './components/header';
 import { v4 as uuidv4 } from 'uuid';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddContact from './components/addContact';
 import ContactList from './components/contactList';
 
 function App() {
   const LOCAL_STORAGE_KEY = 'contacts';
-  const [contacts, setContacts] = useState( JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []);
+  const [contacts, setContacts] = useState(
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []
+  );
 
   const addContactHandler = contact => {
     if (contact.email == undefined || contact.name == undefined) {
@@ -35,13 +38,32 @@ function App() {
   }, [contacts]);
 
   return (
-    <>
-      <div className="ui container">
+    <div className="ui container ">
+      <Router>
         <Header />
-        <AddContact addContactHandler={addContactHandler} />
-        <ContactList contacts={contacts} deletecontact={deleteContact} />
-      </div>
-    </>
+        <Routes>
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <ContactList
+                {...props}
+                contacts={contacts}
+                deleteContact={deleteContact}
+              />
+            )}
+          />
+          <Route
+            path="/add"
+            render={() => (
+              <AddContact {...props} addContactHandler={addContactHandler} />
+            )}
+          />
+        </Routes>
+        {/*  <AddContact addContactHandler={addContactHandler}/>
+            <ContactList contacts={contacts} deleteContact={deleteContact} /> */}
+      </Router>
+    </div>
   );
 }
 

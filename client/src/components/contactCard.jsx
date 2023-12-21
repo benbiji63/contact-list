@@ -2,7 +2,7 @@ import React from 'react';
 import user from '../assets/images/user.png';
 import '../assets/styles/index.css';
 
-const ContactCard = ({ contact, deletecontact }) => {
+const ContactCard = ({ contact, deleteContact }) => {
   const { name, email } = contact;
   return (
     <div className="item relative">
@@ -14,7 +14,7 @@ const ContactCard = ({ contact, deletecontact }) => {
       <i
         className="trash alternate outline icon position_to_right"
         style={{ color: 'red', marginTop: '1vh' }}
-        onClick={() => deletecontact(contact.id)}></i>
+        onClick={() => deleteContact(contact.id)}></i>
     </div>
   );
 };
